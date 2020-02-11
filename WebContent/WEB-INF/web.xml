@@ -9,4 +9,30 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- Instalación del Framework Jersey -->
+  <!-- Se define un servlet de nombre jersey-servlet con los parámetros de mi
+  aplicación -->
+  <servlet>
+  <!-- Nombre que tu quieras -->
+    <servlet-name>jersey-servlet</servlet-name>
+      <!-- Clase en tu proyecto, container -->
+    <servlet-class>ExerciseRest.services</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>ExerciseRest.services</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <!-- Asignar al servlet un url mapping -->
+  <servlet-mapping>
+   <!-- Nombre del servlet antes especificado -->
+        <servlet-name>jersey-servlet</servlet-name>
+         <!-- todas las direcciones que entren las envia al servlet container -->
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+  
+  
 </web-app>
+
